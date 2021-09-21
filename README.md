@@ -11,7 +11,7 @@
 ##### Installation
 
 - Python installation is required (Yes, really, you're not looking for a Python API without having python installed, are you?)
-- Python min version: 3.0.6
+- Python min version: 3.8.0
 - Enter the project folder in a terminal and run the command 
 ```
 pip3 install -r requirements.txt
