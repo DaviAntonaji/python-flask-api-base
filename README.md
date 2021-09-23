@@ -27,5 +27,4 @@ python3 app.py
 ##### Comments
 
 - ###### Environment variables are in the .env file. It is in this file that you put the database access credentials, and other constants that are changed from development, to testing and to production
-- 
 
