@@ -12,11 +12,6 @@ from flask_apispec.annotations                              import doc
 from flask_apispec                                          import use_kwargs, marshal_with
 import os
 from dotenv                                                 import load_dotenv
-
-from apispec                                                import APISpec
-from apispec.ext.marshmallow                                import MarshmallowPlugin
-from flask_apispec.extension                                import FlaskApiSpec
-
 load_dotenv()
 
 
