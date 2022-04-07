@@ -8,8 +8,6 @@ from flask_jwt_extended                                     import JWTManager
 from resources.start                                        import Start
 
 from resources.users                                        import GetUserByID,UserAuth
-from flask_apispec.annotations                              import doc
-from flask_apispec                                          import use_kwargs, marshal_with
 import os
 from dotenv                                                 import load_dotenv
 load_dotenv()
