@@ -8,15 +8,13 @@ class UserModel(object):
         self.user_id = obj[0]
         self.user_name = obj[1]
         self.user_email = obj[2]
-        self.user_password = str(obj[3])
-        self.user_status = obj[4]
+        self.user_status = obj[3]
         
     def json(self):
         return {
             "user_id": managertk.encodedPayload(str(self.user_id)),
             "user_name": self.user_name,
             "user_email": self.user_email,
-            "user_password": self.user_password,
             "user_status": self.user_status
         }
 
