@@ -5,9 +5,10 @@ from flask_restful                                          import Api
 from flask import jsonify,request
 from flask_jwt_extended                                     import JWTManager
 
-from resources.start                                        import Start
+from controllers.start                                        import Start
 
-from resources.users                                        import GetUserByID,UserAuth
+from routes.UserRoutes import UserRoutes
+
 import os
 from dotenv                                                 import load_dotenv
 load_dotenv()
@@ -35,11 +36,9 @@ def token_de_acesso_invalidado():
 def get_my_ip():
     return jsonify({'ip': request.remote_addr}), 200
 
-
 api.add_resource(Start, "/")
 
-api.add_resource(GetUserByID, "/user/id/<string:user_id>")
-api.add_resource(UserAuth, "/user/auth")
+UserRoutes(api)
 
 
 # Main Function 

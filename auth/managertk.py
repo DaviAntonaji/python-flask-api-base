@@ -3,7 +3,7 @@ from flask_jwt_extended import create_access_token, get_jwt_identity
 import datetime
 import base64
 import json
-from tokenpass import cryptdecrypt
+from auth import cryptdecrypt
 
 import os
 from dotenv import load_dotenv

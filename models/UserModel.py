@@ -1,4 +1,4 @@
-from tokenpass import managertk
+from auth import managertk
 from database.connection import connectionDb
 
 class UserModel(object):

@@ -1,9 +1,8 @@
 from flask_restful import reqparse, Resource
-from tokenpass import managertk
-from models.users import UserModel
+from auth import managertk
+from models.UserModel import UserModel
 from flask_jwt_extended import jwt_required, get_jwt_identity
 import json
-from tokenpass import managertk
 
 atributosLogin = reqparse.RequestParser()
 atributosLogin.add_argument('email', required=True, help="The field email cannot be left blank.")
