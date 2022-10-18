@@ -39,11 +39,6 @@ class GetUserByID(Resource):
     @jwt_required
     def get(self, user_id):
         
-        userTest = managertk.verifyUser(json.loads(managertk.decodedPayload(get_jwt_identity())))
-        
-        if userTest == False:
-            return {"message": "Seu usuario foi desativado"},401
-        
         user = UserModel.getUserById(user_id)
         freshAccessToken = managertk.createFreshToken()
         user.update({"refreshToken": freshAccessToken})
