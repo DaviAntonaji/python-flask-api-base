@@ -1,5 +1,6 @@
 aniso8601==8.0.0
 boto==2.49.0
+boto3==1.24.89
 certifi==2020.6.20
 cffi==1.15.0
 chardet==4.0.0
