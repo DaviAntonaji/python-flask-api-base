@@ -54,8 +54,6 @@ class EmailsManagement():
         with open(filedir,mode='r') as file:
             html = file.read()
             html = html.replace("{logo}", logo)
-            html = html.replace("{Nome}", UsuarioNome.split(' ')[0])
-            html = html.replace("{linkConfirma}", Link)
             
         
         self.__Send(email, subject, html)
