@@ -9,7 +9,9 @@ from routes.HotelRoutes import HotelRoutes
 from routes.SiteRoutes import SiteRoutes
 from routes.UserRoutes import UserRoutes
 from routes.StartRoute import StartRoute
+from routes.ArquivosRoutes import ArquivosRoutes
 from sql_alchemy import banco
+
 
 load_dotenv()
 
@@ -38,6 +40,7 @@ HotelRoutes(api)
 SiteRoutes(api)
 UserRoutes(api)
 StartRoute(api)
+ArquivosRoutes(api)
 
 if __name__ == '__main__':
     banco.init_app(app)
