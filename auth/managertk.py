@@ -16,8 +16,7 @@ def AccessKey():
     return os.getenv("BLOWFISH_KEY")
 
 def createToken(payload):
-    #expires = datetime.timedelta(hours=72)
-    expires = datetime.timedelta(days=2400)
+    expires = datetime.timedelta(hours=int(os.getenv("TOKEN_HOURS_VALIDATE")))
     token = create_access_token(identity=encodedPayload(payload), expires_delta=expires)
 
     return token
