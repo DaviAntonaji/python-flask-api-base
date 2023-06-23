@@ -20,8 +20,7 @@ O objetivo deste projeto é fornecer uma estrutura inicial para o desenvolviment
 │   └── managertk.py            # Arquivo de gerenciamento de tokens
 ├── models                      # Diretório contendo arquivos de definição dos modelos de dados
 ├── routes                      # Diretório contendo arquivos de definição das rotas da API
-├── emails                      # Diretório contendo arquivos relacionados ao envio de emails
-│   └── EmailsManagement.py     # Arquivo de gerenciamento de emails
+├── emails                      # Diretório contendo os templates de e-mails
 ├── resources                   # Diretório contendo recursos adicionais da aplicação
 └── utils                       # Diretório contendo utilitários auxiliares
     ├── EmailsManagement.py     # Arquivo de gerenciamento de emails (pasta utils)
