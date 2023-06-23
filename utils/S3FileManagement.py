@@ -39,7 +39,7 @@ class S3FileManagement:
             
            
             self.client.upload_fileobj(
-            Arquivo,
+            File,
             self.S3_BUCKET,
             Directory + tmp_filename,
             ExtraArgs={
@@ -56,7 +56,7 @@ class S3FileManagement:
             print(e)
             return False
 
-    def DeleteFile(Path):
+    def DeleteFile(self, Path):
         key = Path
 
         s3_resource = self.s3

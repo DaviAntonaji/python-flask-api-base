@@ -1,22 +1,36 @@
-#### Hello, this project is a base for developing APIS using Python with FLASK library connected to a MySQL database. 😁
-------------
-##### 👨🏻‍💻 About the project
-###### The project is a base for the development of an API in Python, with the main functions of an API, with a route that needs JWT authentication, and a login that generates a JWT token
+# Projeto Base para APIs com Python e Flask 😁
 
-##### Installation
+Este projeto é uma base para o desenvolvimento de APIs utilizando Python e a biblioteca Flask. Ele permite a conexão com qualquer banco de dados SQL por meio da biblioteca SQLAlchemy.
 
-- Python version: 3.10.6
-- Enter the project folder in a terminal and run the command 
+## 👨🏻‍💻 Sobre o Projeto
+
+O objetivo deste projeto é fornecer uma estrutura inicial para o desenvolvimento de APIs em Python. Ele inclui funcionalidades essenciais, como rotas, autenticação JWT e geração de tokens.
+
+## ⬇️ Instalação
+
+Antes de começar, certifique-se de ter o Python 3.10.6 instalado em seu ambiente.
+
+1. Clone este repositório para o seu ambiente local.
+2. Acesse a pasta do projeto em um terminal.
+3. Execute o seguinte comando para instalar as dependências:
 ```
 pip install -r requirements.txt
 ```
-- Run the following command to start the application
+
+4. Execute o seguinte comando para iniciar a aplicação:
 ```
 python3 app.py
 ```
-------------
 
-##### Comments
 
-- ###### Environment variables are in the .env file. It is in this file that you put the database access credentials, and other constants that are changed from development, to testing and to production
+## ⚙️ Configurações
 
+As configurações do projeto podem ser encontradas no arquivo `.env`. Nele, você poderá definir as credenciais de acesso ao banco de dados e outras variáveis de ambiente relevantes.
+
+## 🙏  Contribuição
+
+Se você quiser contribuir para este projeto, fique à vontade para abrir uma issue ou enviar um pull request.
+
+## 📄 Licença
+
+Este projeto está licenciado sob a licença [MIT](LICENSE).

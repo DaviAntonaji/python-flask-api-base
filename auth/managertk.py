@@ -7,7 +7,6 @@ from auth import cryptdecrypt
 
 import os
 from dotenv import load_dotenv
-from database.connection import connectionDb
 
 load_dotenv()
 
@@ -25,7 +24,7 @@ def createToken(payload):
 
 
 def encodedPayload(data):
-
+    data = str(data)
     cipher = cryptdecrypt.AESCipher(AccessKey())
     encrypted = cipher.encrypt(data)
     string = encrypted.decode('utf-8').replace("/", "|")
