@@ -6,6 +6,29 @@ Este projeto é uma base para o desenvolvimento de APIs utilizando Python e a bi
 
 O objetivo deste projeto é fornecer uma estrutura inicial para o desenvolvimento de APIs em Python. Ele inclui funcionalidades essenciais, como rotas, autenticação JWT e geração de tokens.
 
+## 📦 Estrutura do Projeto
+
+```
+├── Dockerfile                  # Arquivo de configuração do Docker
+├── LICENSE                     # Arquivo de licença
+├── README.md                   # Documentação do projeto
+├── app.py                      # Arquivo principal da aplicação Flask
+├── requirements.txt            # Arquivo de dependências Python
+├── sql_alchemy.py              # Arquivo de configuração do SQLAlchemy
+├── auth                        # Diretório contendo arquivos relacionados à autenticação
+│   ├── cryptdecrypt.py         # Arquivo de gerenciamento de criptografia
+│   └── managertk.py            # Arquivo de gerenciamento de tokens
+├── models                      # Diretório contendo arquivos de definição dos modelos de dados
+├── routes                      # Diretório contendo arquivos de definição das rotas da API
+├── emails                      # Diretório contendo arquivos relacionados ao envio de emails
+│   └── EmailsManagement.py     # Arquivo de gerenciamento de emails
+├── resources                   # Diretório contendo recursos adicionais da aplicação
+└── utils                       # Diretório contendo utilitários auxiliares
+    ├── EmailsManagement.py     # Arquivo de gerenciamento de emails (pasta utils)
+    ├── S3FileManagement.py     # Arquivo de gerenciamento de arquivos no S3 (pasta utils)
+    └── webhooks.py             # Arquivo de gerenciamento de webhooks (pasta utils)
+```
+
 ## ⬇️ Instalação
 
 Antes de começar, certifique-se de ter o Python 3.10.6 instalado em seu ambiente.
@@ -21,6 +44,31 @@ pip install -r requirements.txt
 ```
 python3 app.py
 ```
+
+## 🐳 Docker
+Este projeto também inclui um Dockerfile, permitindo o uso de containerização da aplicação. Siga as instruções abaixo para usar o Docker:
+
+1. Certifique-se de ter o Docker instalado em seu ambiente.
+
+2. Na pasta do projeto, execute o seguinte comando para buildar a imagem Docker:
+```
+docker build -t flaskapi .
+```
+
+3. Depois que a imagem Docker for construída, você pode executar a aplicação em um contêiner Docker usando o seguinte comando:
+```
+docker run -d --restart=always --name flaskApi -p 5001:5001 -v $(pwd):/api flaskapi
+
+```
+
+Este comando realiza o seguinte:
+
+* -d inicia o contêiner em segundo plano (modo "detached").
+* --restart=always configura o contêiner para reiniciar automaticamente em caso de falhas ou reinicializações do sistema.
+* --name flaskApi define o nome do contêiner como "flaskApi".
+* -p 5001:5001 mapeia a porta 5001 do contêiner para a porta 5001 do seu host local, permitindo que você acesse a API.
+* -v $(pwd):/api mapeia o volume do diretório atual para o diretório /api dentro do contêiner, garantindo que quaisquer alterações feitas no código sejam refletidas instantaneamente na aplicação em execução.
+
 
 
 ## ⚙️ Configurações
