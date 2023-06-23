@@ -21,7 +21,7 @@ O objetivo deste projeto é fornecer uma estrutura inicial para o desenvolviment
 ├── models                      # Diretório contendo arquivos de definição dos modelos de dados
 ├── routes                      # Diretório contendo arquivos de definição das rotas da API
 ├── emails                      # Diretório contendo os templates de e-mails
-├── resources                   # Diretório contendo recursos adicionais da aplicação
+├── resources                   # Diretório contendo funcionalides da aplicação
 └── utils                       # Diretório contendo utilitários auxiliares
     ├── EmailsManagement.py     # Arquivo de gerenciamento de emails (pasta utils)
     ├── S3FileManagement.py     # Arquivo de gerenciamento de arquivos no S3 (pasta utils)
