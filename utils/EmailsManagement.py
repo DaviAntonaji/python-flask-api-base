@@ -1,59 +1,35 @@
-import sys
 import os
-
 import smtplib
-import ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-import email.message
+from dotenv import load_dotenv
 
-from dotenv                                                 import load_dotenv
 load_dotenv()
 
-
-class EmailsManagement():
-    
+class EmailsManagement:
     def __init__(self):
         self.PROJECT_ROOT = os.getenv("PROJECT_ROOT") + "/emails"
 
-    
-    def __Send(self, to, subject, message):
+    def sendEmail(self, to, subject, message):
         SMTP_EMAIL = os.getenv("SMTP_EMAIL")
         SMTP_SERVER = os.getenv("SMTP_SERVER")
         SMTP_PORT = int(os.getenv("SMTP_PORT"))
         SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
-        message = MIMEMultipart("alternative")
-        message["Subject"] = subject
-        message["From"] = SMTP_EMAIL
-        message["To"] = to
-        text = "Use um navegador compativel com HTML5"
 
-        # Turn these into plain/html MIMEText objects
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = subject
+        msg["From"] = SMTP_EMAIL
+        msg["To"] = to
+
+        text = "Use um navegador compatível com HTML5"
         part1 = MIMEText(text, "plain")
         part2 = MIMEText(message, "html")
+        msg.attach(part1)
+        msg.attach(part2)
 
-        message.attach(part1)
-        message.attach(part2)
-
-        context = ssl.create_default_context()
-        
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-                        
-                        server.starttls()
-                        server.login(SMTP_EMAIL, SMTP_PASSWORD)
-                        server.sendmail(SMTP_EMAIL, para,
-                                        message.as_string().encode("latin1"))
-                        server.quit()
+            server.starttls()
+            server.login(SMTP_EMAIL, SMTP_PASSWORD)
+            server.sendmail(SMTP_EMAIL, to, msg.as_string().encode("latin1"))
 
-    def SendTest(self, email):
-        
-        subject = f"{UsuarioNome.split(' ')[0]}, vamos confirmar seu e-mail de cadastro?"
-        
-        logo = os.getenv("LOGO")
-        filedir = self.PROJECT_ROOT + "tEST.html"
-        with open(filedir,mode='r') as file:
-            html = file.read()
-            html = html.replace("{logo}", logo)
-            
-        
-        self.__Send(email, subject, html)
+        server.quit()

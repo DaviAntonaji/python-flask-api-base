@@ -5,13 +5,13 @@ from blacklist import BLACKLIST
 import os
 from dotenv import load_dotenv
 from flask_cors import CORS
-load_dotenv()
-
 from routes.HotelRoutes import HotelRoutes
 from routes.SiteRoutes import SiteRoutes
 from routes.UserRoutes import UserRoutes
 from routes.StartRoute import StartRoute
+from sql_alchemy import banco
 
+load_dotenv()
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URI")
@@ -32,7 +32,7 @@ def verifica_blacklist(token):
 
 @jwt.revoked_token_loader
 def token_de_acesso_invalidado():
-    return jsonify({'message': 'You have been logged out.'}), 401 # unauthorized
+    return jsonify({'message': 'You have been logged out.'}), 401
 
 HotelRoutes(api)
 SiteRoutes(api)
@@ -40,6 +40,5 @@ UserRoutes(api)
 StartRoute(api)
 
 if __name__ == '__main__':
-    from sql_alchemy import banco
     banco.init_app(app)
     app.run(port=int(os.getenv("APPLICATION_PORT")), debug=True)
