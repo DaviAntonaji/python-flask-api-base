@@ -19,6 +19,7 @@ O objetivo deste projeto é fornecer uma estrutura inicial para o desenvolviment
     ├── cryptdecrypt.py         # Arquivo de gerenciamento de criptografia
     └── managertk.py            # Arquivo de gerenciamento de tokens
 ├── models                      # Diretório contendo arquivos de definição dos modelos de dados
+├── tests                       # Diretório contendo arquivos de testes unitários
 ├── routes                      # Diretório contendo arquivos de definição das rotas da API
 ├── emails                      # Diretório contendo os templates de e-mails
 ├── resources                   # Diretório contendo funcionalides da aplicação
@@ -27,6 +28,25 @@ O objetivo deste projeto é fornecer uma estrutura inicial para o desenvolviment
     ├── S3FileManagement.py     # Arquivo de gerenciamento de arquivos no S3 (pasta utils)
     └── webhooks.py             # Arquivo de gerenciamento de webhooks (pasta utils)
 ```
+
+## 🧪 Testes Automatizados
+
+Este projeto inclui testes automatizados para verificar o funcionamento correto da API. Os testes estão localizados no diretório `tests`. 
+
+O teste `HealthCheck` é responsável por verificar se a API está funcionando corretamente. Ele realiza uma requisição GET ao endpoint de health check e verifica o status da resposta, a presença da propriedade "version" no JSON retornado e o tempo de resposta.
+
+Para executar os testes automatizados, siga as etapas abaixo:
+
+1. Certifique-se de que a aplicação esteja em execução.
+2. Abra um terminal e navegue até o diretório do projeto.
+3. Execute o seguinte comando para executar o teste:
+```
+python3 tests/health_check.py
+```
+
+
+
+
 
 ## ⬇️ Instalação
 
