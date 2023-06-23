@@ -15,9 +15,9 @@ O objetivo deste projeto é fornecer uma estrutura inicial para o desenvolviment
 ├── app.py                      # Arquivo principal da aplicação Flask
 ├── requirements.txt            # Arquivo de dependências Python
 ├── sql_alchemy.py              # Arquivo de configuração do SQLAlchemy
-├── auth                        # Diretório contendo arquivos relacionados à autenticação
-│   ├── cryptdecrypt.py         # Arquivo de gerenciamento de criptografia
-│   └── managertk.py            # Arquivo de gerenciamento de tokens
+└── auth                        # Diretório contendo arquivos relacionados à autenticação
+    ├── cryptdecrypt.py         # Arquivo de gerenciamento de criptografia
+    └── managertk.py            # Arquivo de gerenciamento de tokens
 ├── models                      # Diretório contendo arquivos de definição dos modelos de dados
 ├── routes                      # Diretório contendo arquivos de definição das rotas da API
 ├── emails                      # Diretório contendo os templates de e-mails
