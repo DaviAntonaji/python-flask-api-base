@@ -71,7 +71,7 @@ Este projeto também inclui um Dockerfile, permitindo o uso de containerização
 
 2. Na pasta do projeto, execute o seguinte comando para buildar a imagem Docker:
 ```
-docker build -t flaskapi .
+docker build --build-arg PORT=5001 -t flaskapi . 
 ```
 
 3. Depois que a imagem Docker for construída, você pode executar a aplicação em um contêiner Docker usando o seguinte comando:
