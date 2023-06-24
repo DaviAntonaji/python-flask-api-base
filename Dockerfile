@@ -1,16 +1,19 @@
-FROM python:3.10.2-slim-bullseye
+FROM python:3.10.2-alpine
+
+ARG PORT
 
 WORKDIR '/api'
 COPY requirements.txt .
-RUN apt-get -y update
-RUN apt install -y build-essential
-RUN apt-get -y install manpages-dev
-RUN pip3 install --upgrade pip
-RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
+
+RUN apk update && \
+    apk add --no-cache build-base && \
+    apk add --no-cache man-pages
+
+RUN pip install --upgrade pip && \
+    pip install --trusted-host pypi.python.org -r requirements.txt
+
 COPY . .
 
-
-
-EXPOSE 7071
+EXPOSE ${PORT}
 
 CMD ["python3", "app.py"]
