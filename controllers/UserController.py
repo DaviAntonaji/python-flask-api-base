@@ -1,7 +1,8 @@
 from flask_restful import reqparse, Resource
 from auth import managertk
-from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask_jwt_extended import jwt_required, get_jwt_identity, get_jwt
 import json
+from blacklist import BLACKLIST
 from orm.UserORM import UserORM
 
 atributosLogin = reqparse.RequestParser()
@@ -30,13 +31,24 @@ class GetByID(Resource):
     def get(self, user_id):
         
         user = UserORM.getById(user_id)
-
+        freshAccessToken = managertk.createFreshToken()
+        user.update({"refreshToken": freshAccessToken})
 
         if user["message"] == "OK":
             return user,200
         else:
             return user, user["status_code"]
         
+
+
+class Logout(Resource):
+
+    @jwt_required()
+    def post(self):
+        jwt_id = get_jwt()['jti'] # JWT Token Identifier
+        BLACKLIST.append(jwt_id)
+        return {'message': 'Logged out successfully!'}, 200
+
 class ListAll(Resource):
     
     @jwt_required()

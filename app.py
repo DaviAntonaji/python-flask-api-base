@@ -33,7 +33,7 @@ def verifica_blocklist(token, jwt_payload):
     return jti in BLACKLIST
 
 @jwt.revoked_token_loader
-def token_de_acesso_invalidado():
+def token_de_acesso_invalidado(token, jwt_payload):
     return jsonify({'message': 'You have been logged out.'}), 401
 
 

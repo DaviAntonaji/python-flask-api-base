@@ -1,4 +1,4 @@
-from controllers.UserController import Auth, GetByID, ListAll, Insert
+from controllers.UserController import Auth, GetByID, ListAll, Insert, Logout
 
 class UserRoutes:
 
@@ -11,3 +11,4 @@ class UserRoutes:
         self.api.add_resource(Insert, '/register')
         self.api.add_resource(GetByID, '/usuarios/<string:user_id>')
         self.api.add_resource(Auth, '/login')
+        self.api.add_resource(Logout, '/logout')
