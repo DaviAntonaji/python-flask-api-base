@@ -40,7 +40,6 @@ def decodedPayload(data):
 
 def createFreshToken():
     currentDataToken = decodedPayload(get_jwt_identity())
-   
     currentDataToken = json.loads(currentDataToken)
     freshAccessToken = createToken(json.dumps(currentDataToken))
 

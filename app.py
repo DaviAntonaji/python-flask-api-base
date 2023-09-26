@@ -1,47 +1,45 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify,request
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
 from blacklist import BLACKLIST
 import os
 from dotenv import load_dotenv
 from flask_cors import CORS
-from routes.HotelRoutes import HotelRoutes
-from routes.SiteRoutes import SiteRoutes
+
 from routes.UserRoutes import UserRoutes
 from routes.StartRoute import StartRoute
-from routes.ArquivosRoutes import ArquivosRoutes
-from sql_alchemy import banco
-
 
 load_dotenv()
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URI")
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = os.getenv("JWT_SECRET_KEY")
 app.config['JWT_BLACKLIST_ENABLED'] = True
+# app.config['JWT_IDENTITY_CLAIM'] = 'jti' 
+
 CORS(app)
 api = Api(app)
 jwt = JWTManager(app)
 
-@app.before_first_request
-def cria_banco():
-    banco.create_all()
+@app.route("/get_ip", methods=["GET"])
+def get_my_ip():
+    return jsonify({'ip': request.remote_addr}), 200
+
+
+
 
 @jwt.token_in_blocklist_loader
-def verifica_blacklist(token):
-    return token['jti'] in BLACKLIST
+def verifica_blocklist(token, jwt_payload):
+    jti = jwt_payload["jti"]
+    return jti in BLACKLIST
 
 @jwt.revoked_token_loader
 def token_de_acesso_invalidado():
     return jsonify({'message': 'You have been logged out.'}), 401
 
-HotelRoutes(api)
-SiteRoutes(api)
+
 UserRoutes(api)
 StartRoute(api)
-ArquivosRoutes(api)
+
 
 if __name__ == '__main__':
-    banco.init_app(app)
     app.run(port=int(os.getenv("APPLICATION_PORT")), debug=True)

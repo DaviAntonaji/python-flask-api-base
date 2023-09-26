@@ -1,4 +1,4 @@
-from resources.usuario import User, UserRegister, UserLogin, UserLogout, UserConfirm
+from controllers.UserController import Auth, GetByID, ListAll, Insert
 
 class UserRoutes:
 
@@ -7,8 +7,7 @@ class UserRoutes:
         self.makeRoutes()
     
     def makeRoutes(self):
-        self.api.add_resource(User, '/usuarios/<int:user_id>')
-        self.api.add_resource(UserRegister, '/cadastro')
-        self.api.add_resource(UserLogin, '/login')
-        self.api.add_resource(UserLogout, '/logout')
-        self.api.add_resource(UserConfirm, '/confirmacao/<int:user_id>')
+        self.api.add_resource(ListAll, '/usuarios')
+        self.api.add_resource(Insert, '/register')
+        self.api.add_resource(GetByID, '/usuarios/<string:user_id>')
+        self.api.add_resource(Auth, '/login')
