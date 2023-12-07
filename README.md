@@ -14,15 +14,17 @@ O objetivo deste projeto é fornecer uma estrutura inicial para o desenvolviment
 ├── README.md                   # Documentação do projeto
 ├── app.py                      # Arquivo principal da aplicação Flask
 ├── requirements.txt            # Arquivo de dependências Python
-├── sql_alchemy.py              # Arquivo de configuração do SQLAlchemy
+├── blacklist.py                # Arquivo de váriavel global para blacklist de tokens JWT
 └── auth                        # Diretório contendo arquivos relacionados à autenticação
     ├── cryptdecrypt.py         # Arquivo de gerenciamento de criptografia
     └── managertk.py            # Arquivo de gerenciamento de tokens
 ├── models                      # Diretório contendo arquivos de definição dos modelos de dados
 ├── tests                       # Diretório contendo arquivos de testes unitários
 ├── routes                      # Diretório contendo arquivos de definição das rotas da API
-├── emails                      # Diretório contendo os templates de e-mails
-├── resources                   # Diretório contendo funcionalides da aplicação
+├── orm                         # Diretório contendo arquivos de operações com banco de dados
+├── controllers                 # Diretório contendo funcionalides da aplicação
+├── functions
+    ├── uuid_manager.py         # Arquivo responsavel de gerar UUIDs para as tabelas
 └── utils                       # Diretório contendo utilitários auxiliares
     ├── EmailsManagement.py     # Arquivo de gerenciamento de emails (pasta utils)
     ├── S3FileManagement.py     # Arquivo de gerenciamento de arquivos no S3 (pasta utils)
@@ -40,11 +42,9 @@ Para executar os testes automatizados, siga as etapas abaixo:
 1. Certifique-se de que a aplicação esteja em execução.
 2. Abra um terminal e navegue até o diretório do projeto.
 3. Execute o seguinte comando para executar o teste:
-```
-python3 tests/health_check.py
-```
-
-
+    ```
+    pytest
+    ```
 
 
 
@@ -55,14 +55,14 @@ Antes de começar, certifique-se de ter o Python 3.10.6 instalado em seu ambient
 1. Clone este repositório para o seu ambiente local.
 2. Acesse a pasta do projeto em um terminal.
 3. Execute o seguinte comando para instalar as dependências:
-```
-pip install -r requirements.txt
-```
+    ```
+    pip install -r requirements.txt
+    ```
 
 4. Execute o seguinte comando para iniciar a aplicação:
-```
-python3 app.py
-```
+    ```
+    python3 app.py
+    ```
 
 ## 🐳 Docker
 Este projeto também inclui um Dockerfile, permitindo o uso de containerização da aplicação. Siga as instruções abaixo para usar o Docker:
@@ -70,15 +70,14 @@ Este projeto também inclui um Dockerfile, permitindo o uso de containerização
 1. Certifique-se de ter o Docker instalado em seu ambiente.
 
 2. Na pasta do projeto, execute o seguinte comando para buildar a imagem Docker:
-```
-docker build --build-arg PORT=5001 -t flaskapi . 
-```
+    ```
+    docker build --build-arg PORT=5001 -t flaskapi . 
+    ```
 
 3. Depois que a imagem Docker for construída, você pode executar a aplicação em um contêiner Docker usando o seguinte comando:
-```
-docker run -d --restart=always --name flaskApi -p 5001:5001 -v $(pwd):/api flaskapi
-
-```
+    ```
+    docker run -d --restart=always --name flaskApi -p 5001:5001 -v $(pwd):/api flaskapi
+    ```
 
 Este comando realiza o seguinte:
 
