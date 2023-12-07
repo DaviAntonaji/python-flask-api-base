@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: "all"
+    schedule:
+      interval: "daily"
+    directory: "/"
+    allow:
+      - dependency-type: "all"
+    versioning-strategy: "increase"
+    automerge: true
