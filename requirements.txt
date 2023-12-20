@@ -11,7 +11,7 @@ Flask==3.0.0
 Flask-Cors==4.0.0
 Flask-JWT-Extended==4.5.2
 Flask-RESTful==0.3.10
-idna==3.4
+idna==3.6
 itsdangerous==2.1.2
 Jinja2==3.1.2
 MarkupSafe==2.1.3
