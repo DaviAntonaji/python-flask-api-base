@@ -27,7 +27,7 @@ pytz==2023.3.post1
 PyYAML==6.0.1
 redis==5.0.3
 requests==2.31.0
-rq==1.15.1
+rq==1.16.2
 shellescape==3.8.1
 six==1.16.0
 urllib3==2.2.1 
