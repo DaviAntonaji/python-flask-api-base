@@ -32,4 +32,4 @@ shellescape==3.8.1
 six==1.16.0
 urllib3==2.2.1 
 Werkzeug==3.0.1
-pytest==7.4.3
+pytest==8.2.0
