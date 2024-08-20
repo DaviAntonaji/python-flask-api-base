@@ -26,7 +26,7 @@ python-dotenv==1.0.1
 pytz==2024.1
 PyYAML==6.0.1
 redis==5.0.3
-requests==2.31.0
+requests==2.32.3
 rq==1.16.2
 shellescape==3.8.1
 six==1.16.0
