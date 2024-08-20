@@ -24,7 +24,7 @@ PyJWT==2.8.0
 PyMySQL==1.1.0
 python-dotenv==1.0.1
 pytz==2024.1
-PyYAML==6.0.1
+PyYAML==6.0.2
 redis==5.0.3
 requests==2.31.0
 rq==1.16.2
